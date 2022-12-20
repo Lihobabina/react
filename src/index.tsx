@@ -2,12 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 
 const Title = () => {
-    return <h1>Hello Title 1</h1>
+    return <h1>Hello Title Fragment</h1>
 }
 
 const Content = () => {
     return (
-        <div>
+        <React.Fragment>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Veritatis aliquam nemo esse perferendis minus aliquid sequi? Sit
@@ -20,16 +20,16 @@ const Content = () => {
                 id sed vitae modi dicta nulla, similique optio quo aliquid,
                 exercitationem excepturi assumenda?
             </p>
-        </div>
+        </React.Fragment>
     )
 }
 
 const App = () => {
     return (
-        <div>
+        <>
             <Title />
             <Content />
-        </div>
+        </>
     )
 }
 
