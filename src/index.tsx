@@ -5,7 +5,17 @@ import ReactDOM from 'react-dom/client'
 // const title = React.createElement('h1', { id: 'title' }, 'Hello react')
 
 // with jsx
-const title = <h1 id="title">Yo</h1>
+// const title = <h1 id="title">Yo</h1>
+
+const content = (
+    <div>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+        </ul>
+        <p>hello </p>
+    </div>
+)
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
-root.render(<React.StrictMode>{title}</React.StrictMode>)
+root.render(<React.StrictMode>{content}</React.StrictMode>)
