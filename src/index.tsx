@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-
+import Title from './Title'
 type Paragraph = {
     p1: string
     p2: string
@@ -18,6 +18,7 @@ const Content = (props: Paragraph) => {
 const App = () => {
     return (
         <>
+            <Title title="Title" />
             <Content p1="lorem1" p2="lorem2" />
         </>
     )
