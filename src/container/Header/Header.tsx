@@ -6,16 +6,12 @@ import Container from '@mui/system/Container'
 import Menu from 'components/Menu/Menu'
 import CartHeader from 'components/CartHeader/CartHeader'
 import Logo from 'components/Logo/Logo'
+import './Header.css'
 type Props = {}
 const Header = (props: Props) => {
     return (
         <>
-            <AppBar
-                position="static"
-                sx={{
-                    background: 'blue',
-                }}
-            >
+            <AppBar position="static" className="app-bar">
                 <Container maxWidth="lg">
                     <Toolbar>
                         <IconButton
