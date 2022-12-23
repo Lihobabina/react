@@ -12,8 +12,8 @@ const Header = (props: Props) => {
         <>
             <AppBar
                 position="static"
-                style={{
-                    background: 'green',
+                sx={{
+                    background: 'blue',
                 }}
             >
                 <Container maxWidth="lg">
