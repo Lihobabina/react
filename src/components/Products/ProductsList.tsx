@@ -1,6 +1,6 @@
 import { Grid } from '@mui/material'
 import ProductsListItem from './ProductsListItem'
-
+import 'utils/productsArray'
 type Props = {}
 const ProductsList = (props: Props) => {
     return (
