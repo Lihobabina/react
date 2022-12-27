@@ -42,19 +42,4 @@ const productsArray:ProductProps[]=[
     price:300
 },
 ]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 export default productsArray
