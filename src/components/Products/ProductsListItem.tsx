@@ -15,38 +15,50 @@ type Props = {
     image: string
 }
 
-class ProductsListItem extends Component<Props> {
+type State = {
+    count: number
+}
+
+class ProductsListItem extends Component<Props, State> {
+    constructor(props: Props) {
+        super(props)
+        this.onIncrement = this.onIncrement.bind(this)
+        this.state = {
+            count: 1,
+        }
+    }
+
+    onIncrement() {
+        this.setState((prevState: State) => ({
+            count: prevState.count + 1,
+        }))
+    }
+
     render() {
+        const { title, type, capacity, price, image } = this.props
         return (
             <>
                 <Card className="product">
                     <CardContent>
                         <div className="product-img">
-                            <img src={this.props.image} alt="" />
+                            <img src={image} alt="" />
                         </div>
-                        <div className="product-title">{this.props.title}</div>
-                        <div className="product-desc">
-                            This is {this.props.title}
+                        <div className="product-title">{title}</div>
+                        <div className="product-desc">This is {title}</div>
+                        <div className="product-features">
+                            <span>Type: {type}</span>
                         </div>
                         <div className="product-features">
-                            <span>Type: {this.props.type}</span>
+                            <span>Capacity: {capacity}</span> Gb
                         </div>
-                        <div className="product-features">
-                            <span>Capacity: {this.props.capacity}</span> Gb
-                        </div>
-                        <div className="product-price">
-                            {this.props.price} $
-                        </div>
+                        <div className="product-price">{price} $</div>
                         <div className="product-quantity">
-                            <Button variant="outlined" className="minus">
-                                -
-                            </Button>
-                            <TextField
-                                value="1"
-                                size="small"
-                                className="input"
-                            />
-                            <Button variant="outlined" className="plus">
+                            <Button variant="outlined">-</Button>
+                            <TextField value={this.state.count} size="small" />
+                            <Button
+                                variant="outlined"
+                                onClick={this.onIncrement}
+                            >
                                 +
                             </Button>
                         </div>
