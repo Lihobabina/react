@@ -12,12 +12,12 @@ const ProductsListItem = (props: Props) => {
             <Card className="product">
                 <CardContent>
                     <div className="product-title">{props.title}</div>
-                    <div className="product-desc">This is{props.title}</div>
+                    <div className="product-desc">This is {props.title}</div>
                     <div className="product-features">
-                        <span>Type:{props.type}</span>
+                        <span>Type: {props.type}</span>
                     </div>
                     <div className="product-features">
-                        <span>Capacity:{props.capacity}</span> Gb
+                        <span>Capacity: {props.capacity}</span> Gb
                     </div>
                     <div className="product-price">{props.price} $</div>
                 </CardContent>
