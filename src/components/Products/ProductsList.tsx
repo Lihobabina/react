@@ -1,6 +1,12 @@
 import { Grid } from '@mui/material'
+import productsArray from 'utils/productsArray'
 import ProductsListItem from './ProductsListItem'
-import 'utils/productsArray'
+type ProductProps = {
+    title: string
+    type: string
+    capacity: number
+    price: number
+}
 type Props = {}
 const ProductsList = (props: Props) => {
     return (
@@ -8,34 +14,20 @@ const ProductsList = (props: Props) => {
             <Grid
                 container
                 direction="row"
-                justifyContent="space-between"
+                justifyContent="space-around"
                 alignItems="center"
                 spacing={4}
             >
-                <Grid item xs={12} sm={6} md={4}>
-                    <ProductsListItem
-                        title="Iphone X"
-                        type="Iphone"
-                        capacity={128}
-                        price={600}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6} md={4}>
-                    <ProductsListItem
-                        title="Iphone 12"
-                        type="Iphone 12"
-                        capacity={64}
-                        price={700}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6} md={4}>
-                    <ProductsListItem
-                        title="Iphone 14 Pro"
-                        type="Iphone 14"
-                        capacity={256}
-                        price={1000}
-                    />
-                </Grid>
+                {productsArray.map((product: ProductProps) => (
+                    <Grid item xs={12} sm={6} md={4}>
+                        <ProductsListItem
+                            title={product.title}
+                            type={product.type}
+                            capacity={product.capacity}
+                            price={product.price}
+                        />
+                    </Grid>
+                ))}
             </Grid>
         </>
     )

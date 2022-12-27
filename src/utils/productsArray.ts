@@ -1,13 +1,11 @@
-type ProductsProps = {
+type ProductProps = {
     title: string
     type: string
     capacity: number
     price: number
 }
-
-
-
-const productsArray:ProductsProps[]=[{
+const productsArray:ProductProps[]=[
+  {
     title:"Iphone 14 Pro",
     type:"Iphone 14",
     capacity:256,
@@ -37,6 +35,26 @@ const productsArray:ProductsProps[]=[{
     capacity:128,
     price:600
 },
+{
+    title:"Iphone 7",
+    type:"Iphone 7",
+    capacity:128,
+    price:300
+},
 ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export default productsArray
