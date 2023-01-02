@@ -6,6 +6,7 @@ import {
     TextField,
 } from '@mui/material'
 import { useState } from 'react'
+
 import './ProductsListItem.scss'
 type Props = {
     title: string
@@ -13,24 +14,18 @@ type Props = {
     capacity: number
     price: number
     image: string
+    addProductToCart: (count: number, price: number) => void
 }
-const ProductsListItem = ({ title, type, capacity, price, image }: Props) => {
+
+const ProductsListItem = ({
+    title,
+    type,
+    capacity,
+    price,
+    image,
+    addProductToCart,
+}: Props) => {
     const [count, setCount] = useState<number>(1)
-    const [color, setColor] = useState<string>('green')
-    const changeColor = () => {
-        setColor((prevState: string) =>
-            prevState === 'green' ? 'red' : 'green'
-        )
-    }
-    // const changeColor = ()=>{
-    //     setColor((prevState:string)=>{
-    // if (prevState === 'green'){
-    //     return 'red'
-    // }else{
-    //     return 'green'
-    // }
-    //     })
-    // }
     return (
         <>
             <Card className="product">
@@ -48,8 +43,6 @@ const ProductsListItem = ({ title, type, capacity, price, image }: Props) => {
                         <span>Capacity:</span> {capacity} Gb
                     </div>
                     <div className="product-price">{price} $</div>
-                    <p>Color: {color}</p>
-                    <button onClick={changeColor}>Change color</button>
                 </CardContent>
                 <Button
                     variant="outlined"
@@ -67,7 +60,12 @@ const ProductsListItem = ({ title, type, capacity, price, image }: Props) => {
                     +
                 </Button>
                 <CardActions className="btns-wrap">
-                    <Button variant="outlined">Add to cart</Button>
+                    <Button
+                        variant="outlined"
+                        onClick={() => addProductToCart(count, price)}
+                    >
+                        Add to cart
+                    </Button>
                 </CardActions>
             </Card>
         </>
