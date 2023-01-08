@@ -5,7 +5,7 @@ import Home from 'pages/Home/Home'
 import PaymentPage from 'pages/PaymentPage/PaymentPage'
 import ShippingPage from 'pages/ShippingPage/ShippingPage'
 import { Routes, Route } from 'react-router-dom'
-type Props = { addProductToCart: (count: number, price: number) => void }
+type Props = { addProductToCart: (id: number, count: number) => void }
 const Main = ({ addProductToCart }: Props) => {
     return (
         <Container maxWidth="lg" sx={{ padding: '50px 0' }} component="main">

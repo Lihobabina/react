@@ -9,15 +9,17 @@ import { useState } from 'react'
 
 import './ProductsListItem.scss'
 type Props = {
+    id: number
     title: string
     type: string
     capacity: number
     price: number
     image: string
-    addProductToCart: (count: number, price: number) => void
+    addProductToCart: (id: number, count: number) => void
 }
 
 const ProductsListItem = ({
+    id,
     title,
     type,
     capacity,
@@ -26,6 +28,14 @@ const ProductsListItem = ({
     addProductToCart,
 }: Props) => {
     const [count, setCount] = useState<number>(1)
+
+    const onIncrementClick = () => {
+        setCount((prevState: number) => prevState + 1)
+    }
+
+    const onDecrementClick = () => {
+        setCount((prevState: number) => prevState - 1)
+    }
     return (
         <>
             <Card className="product">
@@ -46,7 +56,7 @@ const ProductsListItem = ({
                 </CardContent>
                 <Button
                     variant="outlined"
-                    onClick={() => setCount(count - 1)}
+                    onClick={onDecrementClick}
                     disabled={count <= 1}
                 >
                     -
@@ -54,7 +64,7 @@ const ProductsListItem = ({
                 <TextField value={count} size="small" />
                 <Button
                     variant="outlined"
-                    onClick={() => setCount(count + 1)}
+                    onClick={onIncrementClick}
                     disabled={count >= 10}
                 >
                     +
@@ -62,7 +72,7 @@ const ProductsListItem = ({
                 <CardActions className="btns-wrap">
                     <Button
                         variant="outlined"
-                        onClick={() => addProductToCart(count, price)}
+                        onClick={() => addProductToCart(id, count)}
                     >
                         Add to cart
                     </Button>
