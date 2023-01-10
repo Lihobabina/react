@@ -16,7 +16,6 @@ const CartHeader = ({
     productsInCart,
     productsObject = getProductsObject(productsArray),
 }: Props) => {
-    console.log(productsInCart)
     return (
         <div>
             <div>
@@ -33,7 +32,8 @@ const CartHeader = ({
                     (total, productId) =>
                         total +
                         productsInCart[parseInt(productId)] *
-                            productsObject[parseInt(productId)].price
+                            productsObject[parseInt(productId)].price,
+                    0
                 )}
                 $
             </div>
