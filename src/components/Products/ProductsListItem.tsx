@@ -1,10 +1,5 @@
-import {
-    Button,
-    Card,
-    CardActions,
-    CardContent,
-    TextField,
-} from '@mui/material'
+import { Button, Card, CardActions, CardContent } from '@mui/material'
+import Quantity from 'components/Quantity/Quantity'
 import { useState } from 'react'
 
 import './ProductsListItem.scss'
@@ -53,22 +48,13 @@ const ProductsListItem = ({
                         <span>Capacity:</span> {capacity} Gb
                     </div>
                     <div className="product-price">{price} $</div>
+                    <Quantity
+                        count={count}
+                        onIncrementClick={onIncrementClick}
+                        onDecrementClick={onDecrementClick}
+                    />
                 </CardContent>
-                <Button
-                    variant="outlined"
-                    onClick={onDecrementClick}
-                    disabled={count <= 1}
-                >
-                    -
-                </Button>
-                <TextField value={count} size="small" />
-                <Button
-                    variant="outlined"
-                    onClick={onIncrementClick}
-                    disabled={count >= 10}
-                >
-                    +
-                </Button>
+
                 <CardActions className="btns-wrap">
                     <Button
                         variant="outlined"
