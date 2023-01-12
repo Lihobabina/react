@@ -9,6 +9,10 @@ type ProductsInCart = {
     [id: number]: number
 }
 
+type ProductsLikeState = {
+    [id: number]: boolean
+}
+
 const App = () => {
     const [productsInCart, setProductsInCart] = useState<ProductsInCart>({})
 
@@ -27,6 +31,13 @@ const App = () => {
             [id]: count,
         }))
     }
+
+    const [productsLikeState, setproductsLikeState] =
+        useState<ProductsLikeState>({
+            1: true,
+            2: true,
+        })
+
     return (
         <StyledEngineProvider injectFirst>
             <CssBaseline />
