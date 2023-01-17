@@ -33,11 +33,14 @@ const App = () => {
     }
 
     const [productsLikeState, setproductsLikeState] =
-        useState<ProductsLikeState>({
-            1: true,
-            2: true,
-        })
+        useState<ProductsLikeState>({})
 
+    const toggleLikeState = (id: number) => {
+        setproductsLikeState((prevState: ProductsLikeState) => ({
+            ...prevState,
+            [id]: !prevState[id],
+        }))
+    }
     return (
         <StyledEngineProvider injectFirst>
             <CssBaseline />
@@ -47,6 +50,8 @@ const App = () => {
                 productsInCart={productsInCart}
                 removeProductFromCart={removeProductFromCart}
                 changeProductsQuantity={changeProductsQuantity}
+                productsLikeState={productsLikeState}
+                toggleLikeState={toggleLikeState}
             />
         </StyledEngineProvider>
     )
